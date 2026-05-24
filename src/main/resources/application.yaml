@@ -2,8 +2,7 @@ spring:
   application:
     name: school
 
-  config:
-    import: aws-secretsmanager:prod-school-RDSCreds
+
 
   cloud:
     aws:

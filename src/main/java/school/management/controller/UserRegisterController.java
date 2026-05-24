@@ -134,14 +134,14 @@ public class UserRegisterController {
         }
     }
 
-    @Value("${username}")
-    private String username;
-
-    @Value("${host}")
-    private String host;
-
-    @GetMapping(value = "/test")
-    public String test() {
-        return "Username = " + username + " Host = " + host;
-    }
+//    @Value("${username}")
+//    private String username;
+//
+//    @Value("${host}")
+//    private String host;
+//
+//    @GetMapping(value = "/test")
+//    public String test() {
+//        return "Username = " + username + " Host = " + host;
+//    }
 }
