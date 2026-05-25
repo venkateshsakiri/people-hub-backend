@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: target/school-0.0.1-SNAPSHOT.jar
-    destination: /home/ec2-user/app
+    destination: /home/ec2-user/webapps/school-api
 
 hooks:
   ApplicationStop:
