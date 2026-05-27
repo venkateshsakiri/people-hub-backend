@@ -40,7 +40,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:8081","http://localhost:8080","http://school-management-ui-app.s3-website.eu-north-1.amazonaws.com","https://peopleplues.netlify.app","https://poonam.fun"));
+        config.setAllowedOrigins(List.of("http://localhost:8081","http://localhost:8080","http://school-management-ui-app.s3-website.eu-north-1.amazonaws.com","https://peopleplues.netlify.app","https://poonam.fun","http://981654503053-school-ui.s3-website.eu-north-1.amazonaws.com"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
