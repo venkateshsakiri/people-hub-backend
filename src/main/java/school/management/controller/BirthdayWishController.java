@@ -12,7 +12,7 @@ import java.util.Map;
 @CrossOrigin("*")
 @RequestMapping("/api/birthday-wishes")
 public class BirthdayWishController {
-
+//    comments for updating commit
     @Autowired
     private BirthdayWishes birthdayWishes;
 
