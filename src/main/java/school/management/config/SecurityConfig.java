@@ -50,7 +50,8 @@ public class SecurityConfig {
                 "https://poonam.fun",
                 "http://981654503053-school-ui.s3-website.eu-north-1.amazonaws.com",
                 "http://16.170.146.174",
-                "http://16.170.146.174:8081"
+                "http://16.170.146.174:8081",
+                "http://16.170.146.174:8080"
         ));
         config.setAllowedOriginPatterns(List.of("https://*.hpslife.co.uk"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
