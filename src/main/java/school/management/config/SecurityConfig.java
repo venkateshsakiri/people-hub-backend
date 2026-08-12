@@ -22,13 +22,13 @@ public class SecurityConfig {
     @Autowired
     private JwtFilter jwtFilter;
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
 
         http
-                .cors(cors -> {})
+                .cors(cors -> cors.configurationSource(corsConfigurationSource))  // <-- fixed
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**","/api/birthday-wishes").permitAll()
+                        .requestMatchers("/api/auth/**", "/api/birthday-wishes").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
@@ -40,7 +40,19 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:8081","http://localhost:8080","https://v2.hpslife.co.uk","http://school-management-ui-app.s3-website.eu-north-1.amazonaws.com","https://peopleplues.netlify.app","https://poonam.fun","http://981654503053-school-ui.s3-website.eu-north-1.amazonaws.com","*","http://16.170.146.174","http://16.170.146.174:8081"));
+        config.setAllowedOrigins(List.of(
+                "http://localhost:8081",
+                "http://localhost:8080",
+                "https://v2.hpslife.co.uk",
+                "https://v2.padmavathicartravels.com",
+                "http://school-management-ui-app.s3-website.eu-north-1.amazonaws.com",
+                "https://peopleplues.netlify.app",
+                "https://poonam.fun",
+                "http://981654503053-school-ui.s3-website.eu-north-1.amazonaws.com",
+                "http://16.170.146.174",
+                "http://16.170.146.174:8081"
+        ));
+        config.setAllowedOriginPatterns(List.of("https://*.hpslife.co.uk"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
